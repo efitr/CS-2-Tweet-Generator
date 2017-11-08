@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 
 app = Flask(__name__)
@@ -7,4 +8,5 @@ def hello_world():
     return "Fuck Egon!!!!!"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0' , port=3000)
+    port = int(os.environs.get('PORT', 9001))
+    app.run(host='0.0.0.0' , port=port)
