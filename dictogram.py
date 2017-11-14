@@ -32,6 +32,25 @@ class Dictogram(dict):
         else:
             return 0
 
+def markov_chain(word_list):
+    markov = {}
+    index = 0
+    while index < len(word_list)-1:
+        current = word_list[index]
+        next_word = word_list[index+1]
+        if current not in markov.keys():
+            markov[current] = Dictogram() # {} Dictogram is empty array
+            print(markov)
+        markov[current].add_count(next_word)
+        index+=1
+    print(markov)
+    print('hi')
+        
+        
+        
+
+
+
 def print_histogram(word_list):
     print('word list: {}'.format(word_list))
     # Create a dictogram and display its contents
@@ -61,6 +80,8 @@ def main():
         woodchuck_text = ('how much wood would a wood chuck chuck'
                           ' if a wood chuck could chuck wood')
         print_histogram(woodchuck_text.split())
+        markov_chain("one fish two fish two fish red fish blue fish".split()
+                     )
 
 
 if __name__ == '__main__':
