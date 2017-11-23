@@ -6,17 +6,14 @@ class Histogram(dict):
     def __init__(self, source_text):
         self = self.histogram(source_text)
         #self.source_text = source_text
-    
-    def histogram(self, sour_text):
-        histo_dict = {}
-        #sour_text = self.source_text
-        for word in sour_text:
-            if word not in histo_dict:
-                histo_dict[word] = 1
-            else:
-                histo_dict[word] += 1
-        print(histo_dict)
-        return histo_dict
+
+    def histogram(self, source_text):
+        histogram = {}
+        for word in source_text:
+            if word not in histogram:
+                histogram[word] = 0
+            histogram[word] += 1
+        return histogram
 
     def unique_words(self):
         print('hi')
