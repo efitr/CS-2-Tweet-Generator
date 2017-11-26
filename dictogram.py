@@ -18,36 +18,23 @@ class Dictogram(dict):
     def add_count(self, word, count=1):
         """Increase frequency count of given word by given count amount."""
         # TODO: Increase word frequency by count
+        self.tokens += count
+
         if word in self:
             self[word] += count
         else:
             self[word] = count
-        self.tokens += count
+            self.types += 1
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
         # TODO: Retrieve word frequency count
-        if self[word]:
+        none = 0
+        if word in self:
             return self[word]
         else:
-            return 0
+            return none
 
-def markov_chain(word_list):
-    markov = {}
-    index = 0
-    while index < len(word_list)-1:
-        current = word_list[index]
-        next_word = word_list[index+1]
-        if current not in markov.keys():
-            markov[current] = Dictogram() # {} Dictogram is empty array
-            print(markov)
-        markov[current].add_count(next_word)
-        index+=1
-    print(markov)
-    print('hi')
-        
-        
-        
 
 
 
@@ -80,8 +67,8 @@ def main():
         woodchuck_text = ('how much wood would a wood chuck chuck'
                           ' if a wood chuck could chuck wood')
         print_histogram(woodchuck_text.split())
-        markov_chain("one fish two fish two fish red fish blue fish".split()
-                     )
+        
+                     
 
 
 if __name__ == '__main__':
