@@ -11,7 +11,3 @@ def random_rearragement(lst):
 words = input("Enter words: ").split(" ")
 random_rearragement(words)
 print(words)
-
-
-
-

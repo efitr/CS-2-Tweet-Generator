@@ -13,7 +13,7 @@ def create_words)list(filename):
         array = f.readlines()
     return array
 '''
-word_dictionary = {'feliz': 'reto, miedo', 'molesto': 'aburrido', 'normal': 'inexpresivo'}
+word_dictionary = {'feliz': 'reto', 'miedo', 'molesto': 'aburrido', 'normal': 'inexpresivo'}
 
 amount_of_times = int(input())
 

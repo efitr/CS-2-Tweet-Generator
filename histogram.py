@@ -14,12 +14,9 @@ def histogram(source_text):
 def unique_words(histogram):
     print('hi')
     unique_arr = []
-    for key,val in self.items():
+    for key,val in items():
         print("The key is {} and val is {}".format(key,val))
-    return True
-
-
-    
+    return True    
 
 
 if __name__ == '__main__':
@@ -27,6 +24,7 @@ if __name__ == '__main__':
     source= ['one','fish','two', 'fish','red', 'fish','blue','fish']
     histo= histogram(source)
     print(histo)
+    #histo= unique_words(histo)
     """
     Feedback:
     - Perhaps use more semantic variable names even tho
