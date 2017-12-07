@@ -60,36 +60,65 @@ class LinkedList(object):
         self.tail = new_node
 
     def prepend(self, item):
-        self.head = Node(data = item)
-        self.next = self.head
+        new_node = Node(item)
 
-        if self.tail == None:
-            self.tail = Node(data = item)
+        if self.head is None and self.tail is None:
+            self.head = new_node
+            self.tail = new_node
+        elif self.head == self.tail:
+            self.head = new_node
+            self.head.next = self.tail
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        
 
     def find(self, quality):
         current = self.head
 
         while current != None:
-            if current.data == quality:
+            if quality(current.data):
                 return current.data
-            else:
-                current = current.next
+            current = current.next
+        
 
     def delete(self, item):
         current_node = self.head
         previous_node = None
-        while current_node and current_node.data != item:
+
+        # Loop until the end of the linked list
+        while current_node is not None:
+            # if the currentnode.data is equal to the item passed in
+            if current_node.data == item:
+                    # If current node is in the middle
+                if current_node is not self.head and current_node is not self.tail:
+                    previous_node.next = current_node.next
+                # If current node is the head
+                if current_node is self.head:
+                    self.head = current_node.next
+                # If current node is the tail
+                if current_node is self.tail:
+                    if previous_node is not None:
+                        previous_node.next = None
+                    self.tail = previous_node
+                return 
             previous_node = current_node
             current_node = current_node.next
+        raise ValueError("Node does not exist")
+            
+
+        # while current_node and current_node.data != item:
+        #     previous_node = current_node
+        #     current_node = current_node.next
         
-        if previous_node is None:
-            self.head = current_node.next
-        elif current_node:
-            previous_node.next = current_node.next
-            current_node.next = None
+        # if previous_node is None:
+        #     self.head = current_node.next
+        # elif current_node:
+        #     previous_node.next = current_node.next
+        #     current_node.next = None
         
-        print(self.length())
-        print(self.tail)
+        # print(self.length())
+        # print(self.tail)
 
 def test_linked_list():
     ll = LinkedList()
@@ -116,7 +145,7 @@ def test_linked_list():
 
         print('head: {}'.format(ll.head))
         print('tail: {}'.format(ll.tail))
-        print('lenght: {}'.format(ll.lenght()))
+        print('lenght: {}'.format(ll.length()))
 
 if __name__ == '__main__':
     test_linked_list()
