@@ -20,11 +20,8 @@ def weighted_sampling(histogram):
             else:
                 return k
 
-
-
-
-
-
 if __name__ == '__main__':
+    source = ['one', 'fish','two', 'fish', 'blue', 'fish', 'red', 'fish']
 
-   pass
+    k = weighted_sampling(source)
+    print(k)
