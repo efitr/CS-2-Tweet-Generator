@@ -80,7 +80,7 @@ class LinkedList(object):
             if quality(current.data):
                 return current.data
             current = current.next
-        
+        return None
 
     def delete(self, item):
         current_node = self.head
