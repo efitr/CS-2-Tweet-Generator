@@ -4,7 +4,9 @@ import sys
 
 
 def histogram(source_text):
-    '''  '''
+    ''' Create a dictionary, loop through every word in source_text
+    and if the word is not in the histogram adds it with a value of
+    0 but if it is add a + 1 count to the already there word '''
     histogram = {}
     for word in source_text:
         if word not in histogram:
@@ -13,11 +15,12 @@ def histogram(source_text):
     return histogram
 
 def unique_words(histogram):
+    '''  '''
     print('hi')
-    unique_arr = []
-    for key,val in items():
-        print("The key is {} and val is {}".format(key,val))
-    return True    
+    unique_word = []
+    for key,value in items():
+        print("The key is {} and value is {}".format(key,value))
+    return True   
 
 
 if __name__ == '__main__':

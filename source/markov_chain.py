@@ -23,7 +23,7 @@ def dictogram_mark(source_text):
 def markov_sample(dictogram):
     return stochastic_sampling.weighted_sampling(dictogram)
 
-def Markov_chain(dictogram):
+def markov_chain(dictogram):
     output=['red']
     for word_pos in range(10):
         next_word = markov_sample(dictogram[output[word_pos]])
@@ -36,7 +36,7 @@ if __name__=="__main__":
     dicto = dictogram_mark(source)  
     print(dicto)
 
-    print(Markov_chain(dicto))
+    print(markov_chain(dicto))
 
 
         
