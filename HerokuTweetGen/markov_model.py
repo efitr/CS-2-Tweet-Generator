@@ -95,3 +95,4 @@ def generate_random_sentence_n(lenght, markov_model):
 
 if __name__ == '__main__':
     clean_text_list = clean_file('MobyDick.txt')
+    print(clean_text_list)
